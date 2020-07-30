@@ -1,6 +1,6 @@
 {
   "name": "@borderless/web-jwt",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Small JWT library using the Web Crypto API",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

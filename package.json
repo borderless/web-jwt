@@ -1,0 +1,109 @@
+{
+  "name": "@borderless/web-jwt",
+  "version": "0.0.0",
+  "description": "Small JWT library using the Web Crypto API",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist.es2015/index.js",
+  "sideEffects": false,
+  "jsnext:main": "dist.es2015/index.js",
+  "files": [
+    "dist/",
+    "dist.es2015/"
+  ],
+  "scripts": {
+    "prettier": "prettier --write",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet --fix",
+    "format": "npm run prettier -- \"{,src/**/}*.{js,jsx,ts,tsx,json,css,md,yml,yaml}\"",
+    "build": "rimraf dist/ dist.es2015/ && tsc && tsc -P tsconfig.es2015.json",
+    "specs": "jest --coverage",
+    "test": "npm run -s lint && npm run -s build && npm run -s specs && npm run -s size",
+    "size": "size-limit",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/BorderlessLabs/web-jwt.git"
+  },
+  "keywords": [
+    "jwt",
+    "jsonwebtoken",
+    "web",
+    "crypto",
+    "subtlecrypto",
+    "browser",
+    "worker",
+    "typescript"
+  ],
+  "author": {
+    "name": "Blake Embrey",
+    "email": "hello@blakeembrey.com",
+    "url": "http://blakeembrey.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BorderlessLabs/web-jwt/issues"
+  },
+  "homepage": "https://github.com/BorderlessLabs/web-jwt",
+  "size-limit": [
+    {
+      "path": "dist.es2015/index.js",
+      "limit": "1.1 KB"
+    }
+  ],
+  "jest": {
+    "setupFiles": [
+      "./jest.setup.js"
+    ],
+    "roots": [
+      "<rootDir>/src/"
+    ],
+    "transform": {
+      "\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,md,yml,yaml}": "npm run prettier"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.5.5",
+    "@types/jest": "^26.0.0",
+    "@types/node": "^14.0.1",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "isomorphic-webcrypto": "^2.3.6",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.0.8",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "size-limit": "^4.5.5",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "@borderless/base64": "^1.0.1"
+  }
+}

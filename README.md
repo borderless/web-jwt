@@ -2,9 +2,9 @@
 
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
-[![Build status][travis-image]][travis-url]
-[![Test coverage][coveralls-image]][coveralls-url]
-[![Bundle size][bundlephobia-image]][bundlephobia-url]
+[![Build status][build-image]][build-url]
+[![Test coverage][coverage-image]][coverage-url]
+[![Bundle size][bundle-image]][bundle-url]
 
 > Small JWT library using the [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API).
 
@@ -60,13 +60,13 @@ This project is written using [TypeScript](https://github.com/Microsoft/TypeScri
 
 MIT
 
-[npm-image]: https://img.shields.io/npm/v/@borderless/web-jwt.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/@borderless/web-jwt
 [npm-url]: https://npmjs.org/package/@borderless/web-jwt
-[downloads-image]: https://img.shields.io/npm/dm/@borderless/web-jwt.svg?style=flat
+[downloads-image]: https://img.shields.io/npm/dm/@borderless/web-jwt
 [downloads-url]: https://npmjs.org/package/@borderless/web-jwt
-[travis-image]: https://img.shields.io/travis/BorderlessLabs/web-jwt.svg?style=flat
-[travis-url]: https://travis-ci.org/BorderlessLabs/web-jwt
-[coveralls-image]: https://img.shields.io/coveralls/BorderlessLabs/web-jwt.svg?style=flat
-[coveralls-url]: https://coveralls.io/r/BorderlessLabs/web-jwt?branch=master
-[bundlephobia-image]: https://img.shields.io/bundlephobia/minzip/@borderless/web-jwt.svg
-[bundlephobia-url]: https://bundlephobia.com/result?p=@borderless/web-jwt
+[build-image]: https://img.shields.io/github/actions/workflow/status/borderless/web-jwt/ci.yml?branch=main
+[build-url]: https://github.com/borderless/web-jwt/actions/workflows/ci.yml?query=branch%3Amain
+[coverage-image]: https://img.shields.io/codecov/c/gh/borderless/web-jwt
+[coverage-url]: https://codecov.io/gh/borderless/web-jwt
+[bundle-image]: https://img.shields.io/bundlephobia/minzip/@borderless/web-jwt.svg
+[bundle-url]: https://bundlephobia.com/result?p=@borderless/web-jwt

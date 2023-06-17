@@ -19,10 +19,15 @@ export const ALGORITHMS = {
 };
 
 /**
+ * Supported JWT algorithms.
+ */
+export type Algorithm = keyof typeof ALGORITHMS;
+
+/**
  * JWT header object.
  */
 export type JwtHeader = {
-  alg: string;
+  alg: Algorithm | "none";
   typ?: "JWT";
   kid?: string;
 };
@@ -49,7 +54,7 @@ const decoder = new TextDecoder();
  * Decode results for invalid JWTs.
  */
 export const NOOP_JWT: RawJwt = {
-  header: { alg: "" },
+  header: { alg: "none" },
   payload: {},
   data: new Uint8Array(0),
   signature: new Uint8Array(0),
@@ -81,7 +86,9 @@ export function decodeJwt(token: string): RawJwt {
 
       return { header, payload, data, signature };
     }
-  } catch {}
+  } catch {
+    // Noop.
+  }
 
   return NOOP_JWT;
 }
@@ -92,7 +99,7 @@ export function decodeJwt(token: string): RawJwt {
 export async function verifyJwt(raw: RawJwt, key: CryptoKey) {
   const { alg } = raw.header;
 
-  if (!ALGORITHMS.hasOwnProperty(alg)) return false;
+  if (!Object.prototype.hasOwnProperty.call(ALGORITHMS, alg)) return false;
   if (!raw.data.length || !raw.signature.length) return false;
 
   return crypto.subtle.verify(
@@ -113,7 +120,7 @@ export async function encodeJwt(
 ): Promise<string> {
   const { alg } = header;
 
-  if (!ALGORITHMS.hasOwnProperty(alg)) {
+  if (!Object.prototype.hasOwnProperty.call(ALGORITHMS, alg)) {
     throw new TypeError("Invalid alg in header");
   }
 

@@ -1,4 +1,5 @@
-import { encodeJwt, verifyJwt, decodeJwt, NOOP_JWT } from "./index";
+import { describe, it, expect } from "vitest";
+import { encodeJwt, verifyJwt, decodeJwt, NOOP_JWT } from "./index.js";
 
 describe("web jwt", () => {
   describe("validation", () => {

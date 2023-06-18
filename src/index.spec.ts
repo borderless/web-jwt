@@ -1,3 +1,4 @@
+import { webcrypto } from "node:crypto";
 import { describe, it, expect } from "vitest";
 import {
   encodeJwt,
@@ -6,6 +7,9 @@ import {
   NOOP_JWT,
   NONE_KEY,
 } from "./index.js";
+
+// @ts-expect-error next-line
+globalThis.crypto = webcrypto; // Node.js 18 support.
 
 describe("web jwt", () => {
   describe("validation", () => {

@@ -8,8 +8,12 @@ import {
   NONE_KEY,
 } from "./index.js";
 
-// @ts-expect-error next-line
-globalThis.crypto = webcrypto; // Node.js 18 support.
+try {
+  // @ts-expect-error next-line
+  globalThis.crypto = webcrypto; // Node.js 18 support.
+} catch {
+  // Noop.
+}
 
 describe("web jwt", () => {
   describe("validation", () => {

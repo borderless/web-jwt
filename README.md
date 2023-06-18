@@ -17,7 +17,13 @@ npm install @borderless/web-jwt --save
 ## Usage
 
 ```js
-import { encodeJwt, decodeJwt, verifyJwt } from "@borderless/web-jwt";
+import {
+  encodeJwt,
+  decodeJwt,
+  verifyJwt,
+  NOOP_JWT,
+  NONE_KEY,
+} from "@borderless/web-jwt";
 
 // Create a web crypto key.
 const key = crypto.subtle.importKey(
@@ -51,6 +57,12 @@ const jwt = await decodeJwt(
 // Verify the decoded JWT _before_ trusting!
 const valid = await verifyJwt(jwt); //=> true
 ```
+
+**Notes:**
+
+- `decodeJwt` will return a `NOOP_JWT` when decoding an invalid JWT. No errors are thrown on invalid data.
+- `alg: none` is only supported by using the `NONE_KEY` symbol exported by the package.
+- The JWT `alg` header is ignored and the crypto key algorithm is used instead. This avoids attacks using the `alg` header.
 
 ## TypeScript
 

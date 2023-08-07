@@ -4,7 +4,6 @@
 [![NPM downloads][downloads-image]][downloads-url]
 [![Build status][build-image]][build-url]
 [![Test coverage][coverage-image]][coverage-url]
-[![Bundle size][bundle-image]][bundle-url]
 
 > Small JWT library using the [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API).
 
@@ -80,5 +79,3 @@ MIT
 [build-url]: https://github.com/borderless/web-jwt/actions/workflows/ci.yml?query=branch%3Amain
 [coverage-image]: https://img.shields.io/codecov/c/gh/borderless/web-jwt
 [coverage-url]: https://codecov.io/gh/borderless/web-jwt
-[bundle-image]: https://img.shields.io/bundlephobia/minzip/@borderless/web-jwt.svg
-[bundle-url]: https://bundlephobia.com/result?p=@borderless/web-jwt

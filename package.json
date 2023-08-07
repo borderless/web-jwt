@@ -22,8 +22,8 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     }
   },
   "engines": {
@@ -69,5 +69,10 @@
       "path": "dist/index.js",
       "limit": "1.1 KB"
     }
-  ]
+  ],
+  "ts-scripts": {
+    "project": [
+      "tsconfig.build.json"
+    ]
+  }
 }
